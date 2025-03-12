@@ -1,4 +1,7 @@
-document.getElementById('contadorForm').addEventListener('input', function() {
+// script.js
+document.getElementById('contadorForm').addEventListener('input', calcularTotal);
+
+function calcularTotal() {
     const notas = [
         { id: 'nota200', valor: 200 },
         { id: 'nota100', valor: 100 },
@@ -9,29 +12,15 @@ document.getElementById('contadorForm').addEventListener('input', function() {
         { id: 'nota2', valor: 2 }
     ];
 
-    const total = calcularTotal(notas);
-    atualizarTotal(total);
-});
-
-function calcularTotal(notas) {
-    return notas.reduce((total, nota) => {
+    const total = notas.reduce((acc, nota) => {
         const quantidade = parseFloat(document.getElementById(nota.id).value) || 0;
-        return total + (quantidade * nota.valor);
+        return acc + (quantidade * nota.valor);
     }, 0);
-}
 
-function atualizarTotal(total) {
     document.getElementById('total').textContent = total.toFixed(2);
-    document.querySelector('h2').classList.toggle('mostrar', total > 0);
 }
 
 function resetForm() {
     document.getElementById('contadorForm').reset();
-    atualizarTotal(0);
-}
-
-// Função auxiliar para obter o valor de um elemento e convertê-lo para número
-function getValorNumerico(id) {
-    const valor = document.getElementById(id).value;
-    return parseFloat(valor) || 0;
+    document.getElementById('total').textContent = "0.00";
 }
