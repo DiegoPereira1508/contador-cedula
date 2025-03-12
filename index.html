@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador de Cédulas e Moedas</title>
+    <title>Contador de Cédulas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Contador de Cédulas e Moedas</h1>
+        <h1>Contador de Cédulas</h1>
         <form id="contadorForm">
             <label for="nota200">Notas de R$200:</label>
             <input type="number" id="nota200" value="0" min="0">
@@ -30,21 +30,11 @@
 
             <label for="nota2">Notas de R$2:</label>
             <input type="number" id="nota2" value="0" min="0">
-
-
-           </form>
+        </form>
         <div class="buttons">
             <button onclick="resetForm()">Resetar</button>
-            <button onclick="copyTotal()">Copiar Total</button>
-            <button onclick="salvarHistorico()">Salvar no Histórico</button>
-            <button onclick="limparHistorico()">Limpar Histórico</button>
         </div>
         <h2>Total: R$ <span id="total">0.00</span></h2>
-        <div id="detalhes"></div>
-        <div id="historico">
-            <h3>Histórico de Cálculos</h3>
-            <ul id="historicoLista"></ul>
-        </div>
     </div>
     <script src="script.js"></script>
 </body>
