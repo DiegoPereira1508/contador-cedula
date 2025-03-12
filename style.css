@@ -14,37 +14,38 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 1200px;
-    transition: transform 0.3s ease;
+    width: 300px;
+    max-width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .container:hover {
     transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-}
-
-.content {
-    display: flex;
-    gap: 20px;
-}
-
-form {
-    flex: 1;
-}
-
-.historico {
-    flex: 1;
-    max-width: 400px;
+    color: #333;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
+    color: #555;
 }
 
 input {
@@ -53,17 +54,17 @@ input {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus {
     border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 .buttons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
     margin-top: 10px;
 }
 
@@ -74,11 +75,12 @@ button {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 h2 {
@@ -86,43 +88,10 @@ h2 {
     margin-top: 20px;
     font-size: 24px;
     color: #333;
-}
-
-#detalhes {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
 
-#detalhes.mostrar {
+h2.mostrar {
     opacity: 1;
-}
-
-#historicoLista {
-    list-style-type: none;
-    padding: 0;
-}
-
-#historicoLista li {
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-#historicoLista li:hover {
-    background-color: #e9e9e9;
-}
-
-@media (max-width: 768px) {
-    .content {
-        flex-direction: column;
-    }
-
-    .historico {
-        max-width: 100%;
-    }
 }
