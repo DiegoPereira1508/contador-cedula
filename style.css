@@ -1,3 +1,4 @@
+/* style.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -14,58 +15,49 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    max-width: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: scaleIn 0.5s ease;
-}
-
-@keyframes scaleIn {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.container:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
     color: #333;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group {
+    margin-bottom: 10px;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    color: #555;
+    color: #333;
 }
 
 input {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-sizing: border-box;
 }
 
 .buttons {
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    justify-content: space-between;
+    margin-top: 15px;
 }
 
 button {
@@ -75,23 +67,15 @@ button {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
 }
 
 button:hover {
     background-color: #0056b3;
-    transform: translateY(-2px);
 }
 
 h2 {
     text-align: center;
     margin-top: 20px;
-    font-size: 24px;
     color: #333;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-h2.mostrar {
-    opacity: 1;
 }
