@@ -14,8 +14,8 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    max-width: 100%;
+    width: 90%;
+    max-width: 1200px;
     transition: transform 0.3s ease;
 }
 
@@ -26,6 +26,20 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+}
+
+form {
+    flex: 1;
+}
+
+.historico {
+    flex: 1;
+    max-width: 400px;
 }
 
 label {
@@ -86,18 +100,6 @@ h2 {
     opacity: 1;
 }
 
-#historico {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #ccc;
-}
-
-#historico h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
-}
-
 #historicoLista {
     list-style-type: none;
     padding: 0;
@@ -113,4 +115,14 @@ h2 {
 
 #historicoLista li:hover {
     background-color: #e9e9e9;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .historico {
+        max-width: 100%;
+    }
 }
