@@ -4,7 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contador de Cédulas</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        legend {
+            padding: 0 10px;
+            color: #666;
+            font-weight: bold;
+        }
+        .input-group {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .input-group label {
+            width: 150px;
+            margin-right: 10px;
+        }
+        .input-group input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100px;
+        }
+        .buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        #total {
+            font-weight: bold;
+            color: #4CAF50;
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -14,31 +84,31 @@
                 <legend>Quantidade de Cédulas</legend>
                 <div class="input-group">
                     <label for="nota200">Notas de R$200:</label>
-                    <input type="number" id="nota200" value="0" min="0">
+                    <input type="number" id="nota200" value="0" min="0" onchange="calcularTotal()">
                 </div>
                 <div class="input-group">
                     <label for="nota100">Notas de R$100:</label>
-                    <input type="number" id="nota100" value="0" min="0">
+                    <input type="number" id="nota100" value="0" min="0" onchange="calcularTotal()">
                 </div>
                 <div class="input-group">
                     <label for="nota50">Notas de R$50:</label>
-                    <input type="number" id="nota50" value="0" min="0">
+                    <input type="number" id="nota50" value="0" min="0" onchange="calcularTotal()">
                 </div>
                 <div class="input-group">
                     <label for="nota20">Notas de R$20:</label>
-                    <input type="number" id="nota20" value="0" min="0">
+                    <input type="number" id="nota20" value="0" min="0" onchange="calcularTotal()">
                 </div>
                 <div class="input-group">
                     <label for="nota10">Notas de R$10:</label>
-                    <input type="number" id="nota10" value="0" min="0">
+                    <input type="number" id="nota10" value="0" min="0" onchange="calcularTotal()">
                 </div>
                 <div class="input-group">
                     <label for="nota5">Notas de R$5:</label>
-                    <input type="number" id="nota5" value="0" min="0">
+                    <input type="number" id="nota5" value="0" min="0" onchange="calcularTotal()">
                 </div>
                 <div class="input-group">
                     <label for="nota2">Notas de R$2:</label>
-                    <input type="number" id="nota2" value="0" min="0">
+                    <input type="number" id="nota2" value="0" min="0" onchange="calcularTotal()">
                 </div>
             </fieldset>
             <div class="buttons">
@@ -47,6 +117,50 @@
         </form>
         <h2>Total: R$ <span id="total">0.00</span></h2>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        function calcularTotal() {
+            // Valores das notas
+            const notas = {
+                200: parseFloat(document.getElementById('nota200').value) || 0,
+                100: parseFloat(document.getElementById('nota100').value) || 0,
+                50: parseFloat(document.getElementById('nota50').value) || 0,
+                20: parseFloat(document.getElementById('nota20').value) || 0),
+                10: parseFloat(document.getElementById('nota10').value) || 0,
+                5: parseFloat(document.getElementById('nota5').value) || 0,
+                2: parseFloat(document.getElementById('nota2').value) || 0
+            };
+
+            // Calcular total
+            let total = 0;
+            total += notas[200] * 200;
+            total += notas[100] * 100;
+            total += notas[50] * 50;
+            total += notas[20] * 20;
+            total += notas[10] * 10;
+            total += notas[5] * 5;
+            total += notas[2] * 2;
+
+            // Atualizar o total na página
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+
+        function resetForm() {
+            // Resetar todos os campos para 0
+            document.getElementById('nota200').value = 0;
+            document.getElementById('nota100').value = 0;
+            document.getElementById('nota50').value = 0;
+            document.getElementById('nota20').value = 0;
+            document.getElementById('nota10').value = 0;
+            document.getElementById('nota5').value = 0;
+            document.getElementById('nota2').value = 0;
+            
+            // Atualizar o total
+            calcularTotal();
+        }
+
+        // Calcular total inicial
+        calcularTotal();
+    </script>
 </body>
 </html>
